@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ml-from-scratch"
+version = "0.1.0"
+description = ""
+authors = ["m-quick <martinquick7@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+numpy = "^2.3.1"
+pandas = "^2.3.1"
+matplotlib = "^3.10.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
