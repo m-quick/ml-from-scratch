@@ -11,6 +11,7 @@ numpy = "^2.3.1"
 pandas = "^2.3.1"
 matplotlib = "^3.10.3"
 pre-commit = "^4.2.0"
+scikit-learn = "^1.7.1"
 
 
 [build-system]
