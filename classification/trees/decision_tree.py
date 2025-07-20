@@ -116,15 +116,15 @@ class DecisionTree:
         return [round(self.traverse_tree(row, self.tree), n_digits) for row in X]
 
 
-data = datasets.load_breast_cancer()
-X, y = data.data, data.target
-X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+if __name__ == "__main__":
+    data = datasets.load_breast_cancer()
+    X, y = data.data, data.target
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
+    clf = DecisionTree(min_samples_split=2, max_depth=10)
+    clf.fit(X_train, y_train)
+    y_pred = clf.predict(X_test, show_proba=False)
 
-clf = DecisionTree(min_samples_split=2, max_depth=10)
-clf.fit(X_train, y_train)
-y_pred = clf.predict(X_test, show_proba=False)
-
-print("Accuracy:", accuracy_score(y_test, y_pred))
-print("Recall:", recall_score(y_test, y_pred))
-print("Precision:", precision_score(y_test, y_pred))
+    print("Accuracy:", accuracy_score(y_test, y_pred))
+    print("Recall:", recall_score(y_test, y_pred))
+    print("Precision:", precision_score(y_test, y_pred))
