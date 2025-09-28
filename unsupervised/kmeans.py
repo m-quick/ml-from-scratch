@@ -3,6 +3,8 @@ import numpy as np
 from sklearn.datasets import make_blobs
 from sklearn.metrics import silhouette_score
 
+from utils import euclidean_distance
+
 
 class KMeans:
     def __init__(
@@ -25,13 +27,8 @@ class KMeans:
             dimensions_min, dimensions_max, size=(self.k, X.shape[1])
         )
 
-    @staticmethod
-    def calculate_distance(centroids: np.ndarray, point: np.ndarray) -> np.ndarray:
-        squared_diffs = (centroids - point) ** 2
-        return np.sqrt(np.sum(squared_diffs, axis=1))
-
     def assign_label(self, centroids: np.ndarray, point: np.ndarray) -> int:
-        distances = self.calculate_distance(centroids, point)
+        distances = euclidean_distance(centroids, point)
         return np.argmin(distances)
 
     def get_all_labels(self, centroids: np.ndarray, X: np.ndarray) -> np.ndarray:
