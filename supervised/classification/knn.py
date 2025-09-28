@@ -17,9 +17,7 @@ class KNN:
     def fit(self, X: np.ndarray, y: np.ndarray) -> None:
         labels = set(y)
         print(f"Training data contains {len(labels)} labels")
-        self.label_points_map = {
-            label: np.array([i for i, j in zip(X, y) if j == label]) for label in labels
-        }
+        self.label_points_map = {label: X[y == label] for label in labels}
 
     def assign_label(self, new_point: np.ndarray) -> int:
         all_distances = []
